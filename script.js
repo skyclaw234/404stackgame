@@ -297,5 +297,19 @@ class Game {
 }
 let game = new Game();
 
+         // Additional script for fading out the image
+         document.body.addEventListener('click', fadeOutImage);
+         document.body.addEventListener('keydown', function(event) {
+             if (event.key === " " || event.code === "Space") {
+                 fadeOutImage();
+             }
+         });
  
+         function fadeOutImage() {
+             var imgText = document.getElementById('img-text');
+             if (imgText.style.opacity !== '0') { // Check to prevent re-triggering during fade
+                 imgText.style.transition = 'opacity 3s ease-out';
+                 imgText.style.opacity = '0';
+             }
+         }
 
